@@ -1,0 +1,9 @@
+1. Web Framework : NextJS,tailwindCSS
+2. Database: Supabase
+3. Authentication: Supabase
+4. Payments: RevenueCat
+5. Hosting: Vercel
+6. GitHub: version control incase you need to
+      go back to a previous version or if anything
+      breaks
+7. Any Animation: ThreeJS
