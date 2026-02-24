@@ -1,0 +1,5 @@
+{
+  "name": "KachraCash",
+  "description": "Turn Waste into Wallet - A marketplace connecting citizens with local scrap collectors.",
+  "requestFramePermissions": ["geolocation", "camera"]
+}
