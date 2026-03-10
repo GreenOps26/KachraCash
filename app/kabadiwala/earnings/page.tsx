@@ -12,8 +12,8 @@ export default function EarningsPage() {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="mb-8">
-        <h1 className="text-3xl font-extrabold text-[#1F2937] mb-2">Your Earnings</h1>
-        <p className="text-[#1F2937]/70">Track your income and withdraw to your bank account.</p>
+        <h1 className="text-3xl font-extrabold text-white mb-2">Your Earnings</h1>
+        <p className="text-white/80">Track your income and withdraw to your bank account.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -23,14 +23,14 @@ export default function EarningsPage() {
           className="md:col-span-2 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl p-8 text-white shadow-lg relative overflow-hidden"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-          
+
           <div className="relative z-10">
             <p className="text-white/80 font-semibold mb-2 text-lg">Available to Withdraw</p>
             <h2 className="text-6xl font-extrabold mb-8 flex items-center gap-2">
               <IndianRupee className="w-10 h-10" />
               850.00
             </h2>
-            
+
             <div className="flex flex-col sm:flex-row gap-4">
               <button className="px-8 py-4 rounded-xl bg-white text-emerald-600 font-bold text-lg btn-hover-effect flex items-center justify-center gap-2">
                 <ArrowUpRight className="w-5 h-5" />
@@ -51,7 +51,7 @@ export default function EarningsPage() {
         >
           <p className="text-[#1F2937]/70 font-semibold mb-2 text-center">Total Earned</p>
           <h3 className="text-4xl font-extrabold text-[#1F2937] text-center mb-6">₹4,250</h3>
-          
+
           <div className="space-y-4">
             <div className="flex items-center justify-between text-sm">
               <span className="text-[#1F2937]/60">This Month</span>
@@ -65,8 +65,8 @@ export default function EarningsPage() {
         </motion.div>
       </div>
 
-      <h2 className="text-2xl font-bold text-[#1F2937] mb-6">Recent Transactions</h2>
-      
+      <h2 className="text-2xl font-bold text-white mb-6">Recent Transactions</h2>
+
       <div className="bg-white rounded-3xl border border-black/5 shadow-sm overflow-hidden">
         {transactions.map((tx, index) => (
           <motion.div
@@ -85,7 +85,7 @@ export default function EarningsPage() {
                 <p className="text-sm text-[#1F2937]/60">{tx.subtitle}</p>
               </div>
             </div>
-            
+
             <div className="text-right">
               <p className={`font-extrabold text-lg ${tx.type === 'credit' ? 'text-emerald-600' : 'text-[#1F2937]'}`}>
                 {tx.type === 'credit' ? '+' : '-'}₹{tx.amount}

@@ -1,16 +1,16 @@
 import Link from 'next/link';
-import { Map, IndianRupee, Truck, CheckCircle2, MapPin } from 'lucide-react';
+import { Map, IndianRupee, Truck, CheckCircle2 } from 'lucide-react';
 import * as motion from 'motion/react-client';
 
 export default function KabadiwalaDashboard() {
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="max-w-5xl mx-auto px-4 py-6 md:px-8 md:py-10">
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 gap-4">
         <div>
-          <h1 className="text-3xl font-extrabold text-[#1F2937] mb-2">Namaste, Raju! 🙏</h1>
-          <p className="text-[#1F2937]/70">Ready to collect some scrap today?</p>
+          <h1 className="text-3xl md:text-4xl font-extrabold text-[#1F2937] mb-2 leading-relaxed">Namaste! 🙏</h1>
+          <p className="text-[#1F2937]/80 leading-relaxed">Ready to collect some scrap today?</p>
         </div>
-        <Link href="/kabadiwala/map" className="px-6 py-3 rounded-full bg-[#8B5CF6] text-white font-bold btn-hover-effect flex items-center gap-2 shadow-sm">
+        <Link href="/kabadiwala/map" className="px-6 py-3 rounded-full bg-[#EC4899] hover:bg-[#db2777] text-white font-bold btn-hover-effect flex items-center gap-2 shadow-sm">
           <Map className="w-5 h-5" />
           Find Scrap Nearby
         </Link>
@@ -20,94 +20,62 @@ export default function KabadiwalaDashboard() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="p-6 rounded-3xl bg-white border border-black/5 shadow-sm card-hover-effect"
+          className="p-6 rounded-3xl bg-white/80 backdrop-blur-sm border border-white/40 shadow-card card-hover-effect hover:shadow-card-hover hover:border-[#EC4899]/30"
         >
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-[#1F2937]/70 font-semibold">Today&apos;s Earnings</h3>
-            <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-              <IndianRupee className="w-5 h-5 text-emerald-600" />
+            <div className="w-10 h-10 rounded-full bg-[#10B981]/10 flex items-center justify-center">
+              <IndianRupee className="w-5 h-5 text-[#10B981]" />
             </div>
           </div>
-          <p className="text-4xl font-extrabold text-[#1F2937]">₹850</p>
-          <p className="text-sm text-emerald-600 font-semibold mt-4">+₹120 from yesterday</p>
+          <p className="text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-[#EC4899] to-[#8B5CF6] drop-shadow-sm">₹0</p>
+          <p className="text-sm text-gray-500 mt-4">No earnings yet</p>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="p-6 rounded-3xl bg-white border border-black/5 shadow-sm card-hover-effect"
+          className="p-6 rounded-3xl bg-white/80 backdrop-blur-sm border border-white/40 shadow-card card-hover-effect hover:shadow-card-hover hover:border-[#8B5CF6]/30"
         >
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-[#1F2937]/70 font-semibold">Active Bids</h3>
-            <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-              <Truck className="w-5 h-5 text-blue-600" />
+            <div className="w-10 h-10 rounded-full bg-[#8B5CF6]/10 flex items-center justify-center">
+              <Truck className="w-5 h-5 text-[#8B5CF6]" />
             </div>
           </div>
-          <p className="text-4xl font-extrabold text-[#1F2937]">3</p>
-          <p className="text-sm text-[#1F2937]/60 mt-4">Waiting for citizen response</p>
+          <p className="text-4xl font-extrabold text-[#1F2937]">0</p>
+          <p className="text-sm text-gray-500 mt-4">Start bidding on map</p>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="p-6 rounded-3xl bg-white border border-black/5 shadow-sm card-hover-effect"
+          className="p-6 rounded-3xl bg-white/80 backdrop-blur-sm border border-white/40 shadow-card card-hover-effect hover:shadow-card-hover hover:border-[#10B981]/30"
         >
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-[#1F2937]/70 font-semibold">Completed Today</h3>
-            <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
-              <CheckCircle2 className="w-5 h-5 text-purple-600" />
+            <div className="w-10 h-10 rounded-full bg-[#EC4899]/10 flex items-center justify-center">
+              <CheckCircle2 className="w-5 h-5 text-[#EC4899]" />
             </div>
           </div>
-          <p className="text-4xl font-extrabold text-[#1F2937]">4</p>
-          <p className="text-sm text-[#1F2937]/60 mt-4">Great job!</p>
+          <p className="text-4xl font-extrabold text-[#1F2937]">0</p>
+          <p className="text-sm text-gray-500 mt-4">Job count</p>
         </motion.div>
       </div>
 
-      <h2 className="text-2xl font-bold text-[#1F2937] mb-6">Confirmed Pickups</h2>
-      
-      <div className="grid grid-cols-1 gap-6">
-        {/* Mock Confirmed Job */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3 }}
-          className="bg-white rounded-3xl overflow-hidden border border-emerald-500/20 shadow-sm card-hover-effect flex flex-col md:flex-row"
-        >
-          <div className="w-full md:w-48 h-48 md:h-auto bg-gray-200 relative">
-            <img src="https://picsum.photos/seed/scrap3/600/400" alt="Scrap" className="w-full h-full object-cover" />
-            <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-emerald-500 text-white text-sm font-bold shadow-sm">
-              Confirmed
-            </div>
-          </div>
-          <div className="p-6 flex-1 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="text-xl font-bold text-[#1F2937]">Plastic Bottles & Cardboard</h3>
-                <span className="text-xl font-extrabold text-[#8B5CF6]">₹150</span>
-              </div>
-              
-              <div className="flex items-center gap-2 text-[#1F2937]/60 text-sm mb-4">
-                <MapPin className="w-4 h-4" />
-                Apt 402, Sunshine Residency, Koramangala (2.1 km away)
-              </div>
-              
-              <p className="text-sm text-[#1F2937]/70 mb-6">
-                Citizen: Raj Kumar • Phone: +91 98765 43210
-              </p>
-            </div>
-            
-            <div className="flex gap-3">
-              <button className="flex-1 py-3 rounded-xl bg-emerald-500 text-white font-bold btn-hover-effect flex items-center justify-center gap-2">
-                <CheckCircle2 className="w-5 h-5" /> Mark as Collected
-              </button>
-              <button className="flex-1 py-3 rounded-xl bg-gray-100 text-[#1F2937] font-bold hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
-                <Map className="w-5 h-5" /> Navigate
-              </button>
-            </div>
-          </div>
-        </motion.div>
+      <h2 className="text-2xl md:text-3xl font-bold text-[#1F2937] mb-6">Confirmed Pickups</h2>
+
+      <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-10 border border-white/40 shadow-card text-center">
+        <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-4">
+          <Truck className="w-8 h-8 text-gray-400" />
+        </div>
+        <h3 className="text-xl font-bold text-[#1F2937] mb-2">No Confirmed Pickups</h3>
+        <p className="text-gray-600 mb-6">You haven&apos;t won any bids for pick up yet today.</p>
+        <Link href="/kabadiwala/map" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#8B5CF6] hover:bg-[#7c3aed] text-white font-bold btn-hover-effect shadow-sm">
+          <Map className="w-5 h-5" /> Browse Map For Jobs
+        </Link>
       </div>
     </div>
   );

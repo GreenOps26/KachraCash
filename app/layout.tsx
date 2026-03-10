@@ -1,5 +1,6 @@
 import type {Metadata} from 'next';
 import {Poppins, Open_Sans} from 'next/font/google';
+import {AppProvider} from './providers';
 import './globals.css';
 
 const poppins = Poppins({
@@ -20,9 +21,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="en" className={`${poppins.variable} ${openSans.variable}`}>
-      <body className="font-sans bg-[#FEF3C7] text-[#1F2937] antialiased min-h-screen" suppressHydrationWarning>
-        {children}
+    <html lang="en" className={`${poppins.variable} ${openSans.variable}`} suppressHydrationWarning>
+      <body className="font-sans text-[#1F2937] antialiased min-h-screen bg-white" suppressHydrationWarning>
+        <AppProvider>
+          {children}
+        </AppProvider>
       </body>
     </html>
   );

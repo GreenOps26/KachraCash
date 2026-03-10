@@ -38,8 +38,8 @@ export default function PostScrapPage() {
   return (
     <div className="max-w-2xl mx-auto">
       <div className="mb-8">
-        <h1 className="text-3xl font-extrabold text-[#1F2937] mb-2">Post New Scrap</h1>
-        <p className="text-[#1F2937]/70">List your scrap in 3 simple steps to start receiving bids.</p>
+        <h1 className="text-3xl font-extrabold text-[#1F2937] mb-2 leading-relaxed">Post New Scrap</h1>
+        <p className="text-[#1F2937]/70 leading-relaxed">List your scrap in 3 simple steps to start receiving bids.</p>
       </div>
 
       <motion.form
@@ -54,7 +54,7 @@ export default function PostScrapPage() {
             <span className="w-8 h-8 rounded-full bg-[#EC4899] text-white flex items-center justify-center text-sm">1</span>
             Upload Photo
           </h2>
-          
+
           {image ? (
             <div className="relative w-full h-64 rounded-2xl overflow-hidden border border-gray-200">
               <img src={image} alt="Scrap preview" className="w-full h-full object-cover" />
@@ -73,15 +73,15 @@ export default function PostScrapPage() {
                 <p className="mb-2 text-gray-500"><span className="font-semibold text-[#8B5CF6]">Click to upload</span> or drag and drop</p>
                 <p className="text-sm text-gray-500">PNG, JPG or WEBP (MAX. 5MB)</p>
               </div>
-              <input type="file" className="hidden" accept="image/*" onChange={handleImageUpload} required />
+              <input type="file" className="sr-only" accept="image/*" onChange={handleImageUpload} required aria-label="Upload scrap photo" />
             </label>
           )}
         </div>
 
         {/* Step 2: Category */}
-        <div>
-          <h2 className="text-xl font-bold text-[#1F2937] mb-4 flex items-center gap-2">
-            <span className="w-8 h-8 rounded-full bg-[#EC4899] text-white flex items-center justify-center text-sm">2</span>
+        <div role="radiogroup" aria-labelledby="category-heading">
+          <h2 id="category-heading" className="text-xl font-bold text-[#1F2937] mb-4 flex items-center gap-2">
+            <span className="w-8 h-8 rounded-full bg-[#EC4899] text-white flex items-center justify-center text-sm" aria-hidden="true">2</span>
             Select Category
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -89,8 +89,10 @@ export default function PostScrapPage() {
               <button
                 key={cat}
                 type="button"
+                role="radio"
+                aria-checked={category === cat}
                 onClick={() => setCategory(cat)}
-                className={`py-3 px-4 rounded-xl font-bold border-2 transition-all ${
+                className={`py-3 px-4 rounded-xl font-bold border-2 transition-all min-h-[44px] ${
                   category === cat
                     ? 'border-[#8B5CF6] bg-[#8B5CF6]/10 text-[#8B5CF6]'
                     : 'border-gray-200 text-gray-500 hover:border-gray-300'
@@ -104,8 +106,8 @@ export default function PostScrapPage() {
 
         {/* Step 3: Quantity */}
         <div>
-          <h2 className="text-xl font-bold text-[#1F2937] mb-4 flex items-center gap-2">
-            <span className="w-8 h-8 rounded-full bg-[#EC4899] text-white flex items-center justify-center text-sm">3</span>
+          <h2 id="quantity-heading" className="text-xl font-bold text-[#1F2937] mb-4 flex items-center gap-2">
+            <span className="w-8 h-8 rounded-full bg-[#EC4899] text-white flex items-center justify-center text-sm" aria-hidden="true">3</span>
             Rough Quantity
           </h2>
           <input
@@ -113,7 +115,8 @@ export default function PostScrapPage() {
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
             placeholder="e.g., 5 kg, 2 bags, 1 broken TV..."
-            className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#8B5CF6] focus:border-transparent outline-none text-lg"
+            aria-labelledby="quantity-heading"
+            className="w-full min-h-[44px] px-4 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#8B5CF6] focus:border-transparent outline-none text-lg"
             required
           />
         </div>
